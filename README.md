@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="icons/icon.png" alt="Логотип SG-E" width="160" height="160">
+  <img src="icons/sg-e-rounded.png" alt="Логотип SG-E" width="160" height="160">
 </p>
-<h1 align="center">sg.zone enhancements</h1>
+<h1 align="center">sg.zone-enhancements</h1>
 
 <p align="center"><strong><a href="https://github.com/Combain-The-Low-Skill/sg.zone-enhancements/releases/latest">v1.0.0</a> · Автор: Combain (C-T-LS)</strong></p>
 

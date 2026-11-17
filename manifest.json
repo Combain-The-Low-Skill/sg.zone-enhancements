@@ -27,9 +27,9 @@
   ],
   "author": "Combain (C-T-LS)",
   "icons": {
-    "48": "icons/icon.png",
-    "16": "icons/icon.png",
-    "128": "icons/icon.png",
-    "32": "icons/icon.png"
+    "48": "icons/sg-e-rounded.png",
+    "16": "icons/sg-e-rounded.png",
+    "128": "icons/sg-e-rounded.png",
+    "32": "icons/sg-e-rounded.png"
   }
 }
