@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "sg.zone enhancements",
   "description": "Неофициальное, кастомное браузерное расширение улучшающее опыт пользования сайтом проекта SolidGames",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "host_permissions": [
     "https://images.sg.zone/*",
     "https://i.ibb.co/*",

@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">sg.zone-enhancements</h1>
 
-<p align="center"><strong><a href="https://github.com/Combain-The-Low-Skill/sg.zone-enhancements/releases/tag/v1.0.1">v1.0.1</a> · Автор: Combain (C-T-LS)</strong></p>
+<p align="center"><strong><a href="https://github.com/Combain-The-Low-Skill/sg.zone-enhancements/releases/tag/v1.0.2">v1.0.2</a> · Автор: Combain (C-T-LS)</strong></p>
 
 ## Функционал
 
