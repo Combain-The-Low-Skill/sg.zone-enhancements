@@ -1,0 +1,414 @@
+.sgx-announcement {
+  --sgx-active: rgb(78, 138, 84);
+  --sgx-link: rgb(78, 200, 73);
+  --sgx-tab: rgb(45, 45, 45);
+  --sgx-content: rgba(24, 24, 24, .8);
+  --sgx-line: rgba(255, 255, 255, .12);
+  --sgx-red: rgb(255, 82, 82);
+  --sgx-blue: rgb(66, 165, 245);
+  --sgx-motion: 300ms;
+  --sgx-motion-fast: 200ms;
+  --sgx-ease: cubic-bezier(.4, 0, .2, 1);
+  color: #fff;
+  font-family: "Open Sans", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.sgx-announcement *,
+.sgx-announcement *::before,
+.sgx-announcement *::after {
+  box-sizing: border-box;
+}
+
+.sgx-announcement .sgx-tabs {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  isolation: isolate;
+  background: var(--sgx-tab);
+}
+
+.sgx-announcement .sgx-tabs::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0 auto 0 0;
+  width: 25%;
+  background: var(--sgx-active);
+  content: "";
+  pointer-events: none;
+  transform: translateX(calc(var(--sgx-tab-index, 0) * 100%));
+  transition: transform var(--sgx-motion-fast) var(--sgx-ease);
+}
+
+.sgx-announcement .sgx-tabs button,
+.sgx-announcement .sgx-server-tabs button,
+.sgx-announcement .sgx-details-toggle {
+  appearance: none;
+  border: 0;
+  color: #fff;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.sgx-announcement .sgx-tabs button {
+  display: flex;
+  width: 100% !important;
+  height: 40px !important;
+  min-width: 0;
+  max-width: none !important;
+  flex: none !important;
+  align-items: center;
+  justify-content: center;
+  margin: 0 !important;
+  padding: 0 16px !important;
+  overflow: hidden;
+  border-radius: 0;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+  transition: background-color var(--sgx-motion-fast) ease, transform 120ms ease;
+}
+
+.sgx-announcement .sgx-tabs button:hover,
+.sgx-announcement .sgx-tabs button:focus-visible {
+  background: rgb(57, 57, 57);
+}
+
+.sgx-announcement .sgx-tabs button.selected {
+  background: transparent;
+}
+
+.sgx-announcement .sgx-content {
+  overflow: hidden;
+  position: relative;
+  border-radius: 0 0 4px 4px;
+  background: var(--sgx-content);
+  transition: height var(--sgx-motion) var(--sgx-ease);
+}
+
+.sgx-announcement .sgx-mission-view {
+  padding: 20px 40px;
+}
+
+.sgx-announcement .sgx-mission-view.sgx-measuring {
+  position: absolute;
+  width: 100%;
+  visibility: hidden;
+}
+
+.sgx-announcement .sgx-mission-view.sgx-view-leave {
+  position: absolute;
+  width: 100%;
+  animation: sgx-view-out var(--sgx-motion-fast) ease both;
+  pointer-events: none;
+}
+
+.sgx-announcement .sgx-mission-view.sgx-view-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.sgx-announcement .sgx-mission-view.sgx-view-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--sgx-motion) var(--sgx-ease), transform var(--sgx-motion) var(--sgx-ease);
+}
+
+@keyframes sgx-view-out {
+  to {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+.sgx-announcement .sgx-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 38%);
+  gap: 40px;
+  align-items: start;
+}
+
+.sgx-announcement .sgx-heading {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 24px;
+  line-height: 1.3;
+}
+
+.sgx-announcement .sgx-heading strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sgx-announcement .sgx-heading span {
+  color: rgb(170, 170, 170);
+  font-size: 14px;
+}
+
+.sgx-announcement .sgx-factions + .sgx-factions {
+  margin-top: 16px;
+}
+
+.sgx-announcement .sgx-factions .mission-sides,
+.sgx-announcement .sgx-vehicle-content .mission-sides {
+  display: grid;
+  gap: 8px;
+  line-height: 1.3;
+}
+
+.sgx-announcement .sgx-factions .red-side,
+.sgx-announcement .sgx-factions .blue-side,
+.sgx-announcement .sgx-vehicle-content .red-side,
+.sgx-announcement .sgx-vehicle-content .blue-side {
+  padding-left: 16px;
+  white-space: pre-line;
+}
+
+.sgx-announcement .sgx-factions .red-side,
+.sgx-announcement .sgx-vehicle-content .red-side {
+  border-left: 2px solid var(--sgx-red);
+}
+
+.sgx-announcement .sgx-factions .blue-side,
+.sgx-announcement .sgx-vehicle-content .blue-side {
+  border-left: 2px solid var(--sgx-blue);
+}
+
+.sgx-announcement .sgx-cover-slot {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  background: var(--sgx-tab);
+}
+
+.sgx-announcement .sgx-cover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sgx-announcement .sgx-details-toggle {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  margin-top: 16px;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--sgx-line);
+  background: transparent;
+  opacity: .7;
+  transition: color var(--sgx-motion-fast) ease, opacity var(--sgx-motion-fast) ease;
+}
+
+.sgx-announcement .sgx-details-toggle:hover,
+.sgx-announcement .sgx-details-toggle:focus-visible {
+  color: var(--sgx-link);
+  opacity: 1;
+}
+
+.sgx-announcement .sgx-details-toggle span {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform 250ms ease;
+}
+
+.sgx-announcement .sgx-details-toggle[aria-expanded="true"] span {
+  transform: rotate(225deg) translate(-1px, -1px);
+}
+
+.sgx-announcement .sgx-details {
+  overflow: hidden;
+  padding-top: 16px;
+  transition: height var(--sgx-motion) var(--sgx-ease), opacity var(--sgx-motion-fast) ease;
+}
+
+.sgx-announcement .sgx-vehicles {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+}
+
+.sgx-announcement .sgx-server-tabs {
+  display: flex;
+  gap: 0;
+}
+
+.sgx-announcement .sgx-server-tabs button {
+  display: flex;
+  min-width: 100px;
+  width: auto !important;
+  height: 40px !important;
+  max-width: none !important;
+  flex: none !important;
+  align-items: center;
+  justify-content: center;
+  margin: 0 !important;
+  padding: 0 16px !important;
+  border-radius: 0;
+  background: var(--sgx-tab);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color var(--sgx-motion-fast) ease, transform 120ms ease;
+}
+
+.sgx-announcement .sgx-server-tabs button:hover,
+.sgx-announcement .sgx-server-tabs button:focus-visible {
+  background: rgb(57, 57, 57);
+}
+
+.sgx-announcement .sgx-server-tabs button.selected {
+  background: var(--sgx-active);
+}
+
+.sgx-announcement button:active {
+  transform: scale(.97);
+}
+
+.sgx-announcement .sgx-server-switching {
+  animation: sgx-server-in var(--sgx-motion) var(--sgx-ease) both;
+}
+
+@keyframes sgx-server-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.sgx-announcement .sgx-facts {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.sgx-announcement .sgx-fact {
+  display: flex;
+  gap: 7px;
+}
+
+.sgx-announcement .sgx-description {
+  margin: 16px 0 0;
+  color: inherit;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.sgx-announcement .sgx-mission-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--sgx-link);
+}
+
+.sgx-announcement [hidden] {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .sgx-announcement .sgx-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sgx-announcement .sgx-tabs::before {
+    display: none;
+  }
+
+  .sgx-announcement .sgx-tabs button.selected {
+    background: var(--sgx-active);
+  }
+
+  .sgx-announcement .sgx-mission-view {
+    padding: 20px;
+  }
+
+  .sgx-announcement .sgx-overview,
+  .sgx-announcement .sgx-vehicles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sgx-announcement .sgx-cover-slot {
+    order: -1;
+  }
+
+  .sgx-announcement .sgx-server-tabs {
+    justify-content: flex-end;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sgx-announcement *,
+  .sgx-announcement *::before,
+  .sgx-announcement *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+}
+
+.sgx-forum-row > .sgx-forum-main,
+.sgx-forum-row > .sgx-forum-latest {
+  cursor: pointer;
+}
+
+.sgx-forum-row > .sgx-forum-main:hover,
+.sgx-forum-row > .sgx-forum-main:focus-within,
+.sgx-forum-row > .sgx-forum-latest:hover,
+.sgx-forum-row > .sgx-forum-latest:focus-within {
+  background: rgba(78, 138, 84, .12);
+}
+
+/* Единственная глобальная анимация: переход между URL одного сайта. */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: sgx-url-morph-out 180ms ease both;
+}
+
+::view-transition-new(root) {
+  animation: sgx-url-morph-in 280ms cubic-bezier(.4, 0, .2, 1) both;
+}
+
+@keyframes sgx-url-morph-out {
+  to {
+    opacity: 0;
+    transform: translateY(-4px) scale(.998);
+  }
+}
+
+@keyframes sgx-url-morph-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(.998);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}
+
+/* Preserve source newlines even when the site's nested styles reset whitespace. */
+.sgx-announcement .sgx-description * {
+  white-space: inherit;
+}

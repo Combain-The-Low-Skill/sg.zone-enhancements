@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "sg.zone enhancements",
+  "description": "Неофициальное, кастомное браузерное расширение улучшающее опыт пользования сайтом проекта SolidGames",
+  "version": "1.0.0",
+  "host_permissions": [
+    "https://images.sg.zone/*",
+    "https://i.ibb.co/*",
+    "https://i.imgur.com/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://sg.zone/*"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "author": "Combain (C-T-LS)",
+  "icons": {
+    "48": "icons/icon.png",
+    "16": "icons/icon.png",
+    "128": "icons/icon.png",
+    "32": "icons/icon.png"
+  }
+}
